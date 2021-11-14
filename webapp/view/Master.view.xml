@@ -8,7 +8,7 @@
 		<f:title>
 			<f:DynamicPageTitle>
 				<f:heading>
-					<Title text="Products ({products>/ProductCollectionStats/Counts/Total})"/>
+					<Title text="Cars ({CarsModel>/carsCount})"/>
 				</f:heading>
 			</f:DynamicPageTitle>
 		</f:title>
@@ -26,35 +26,40 @@
 					id="productsTable"
 					inset="false"
 					items="{
-						path: 'products>/ProductCollection',
+						path: 'CarsModel>/carsCollection',
 						sorter: {
-							path: 'Name'
+							path: 'id'
 						}
 					}"
 					class="sapFDynamicPageAlignContent"
 					width="auto">
 					<columns>
+					
 						<Column width="12em">
-							<Text text="Product"/>
+							<Text text="Model"/>
 						</Column>
-						<Column	hAlign="End">
+						<Column width="12em">
+							<Text text="Marke"/>
+						</Column>
+						<Column width="12em">
+							<Text text="Farbe"/>
+						</Column>
+						<Column width="12em">
+							<Text text="Ps"/>
+						</Column>
+						<Column width="12em">
 							<Text text="Price"/>
 						</Column>
 					</columns>
 					<items>
 						<ColumnListItem type="Navigation" press=".onListItemPress">
 							<cells>
-								<ObjectIdentifier title="{products>Name}" text="{products>ProductId}"/>
-								<ObjectNumber
-									number="{
-										parts:[
-											{path:'products>Price'},
-											{path:'products>CurrencyCode'}
-										],
-										type: 'sap.ui.model.type.Currency',
-										formatOptions: {showMeasure: false}
-									}"
-									unit="{products>CurrencyCode}"/>
+								
+								<ObjectIdentifier title="{CarsModel>model}" text="{CarsModel>id}"/>
+								<Label text="{CarsModel>marke}" />
+								<Label text="{CarsModel>farbe}" />
+								<Label text="{CarsModel>ps}" />
+								<Label text="{CarsModel>price}" />
 							</cells>
 						</ColumnListItem>
 					</items>

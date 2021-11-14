@@ -5,13 +5,16 @@ sap.ui.define([
 	"sap/ui/model/FilterOperator",
 	'sap/ui/model/Sorter',
 	'sap/m/MessageBox',
-	'sap/f/library'
-], function (JSONModel, Controller, Filter, FilterOperator, Sorter, MessageBox, fioriLibrary) {
+	'sap/f/library',
+	"sap/ui/demo/fiori2/model/dataFactory"
+], function (JSONModel, Controller, Filter, FilterOperator, Sorter, MessageBox, fioriLibrary,DataFactory) {
 	"use strict";
 
 	return Controller.extend("sap.ui.demo.fiori2.controller.Master", {
 		onInit: function () {
 			this.oView = this.getView();
+			//this.oDataFactory = DataFactory;
+			this.oView.setModel(DataFactory.getCarsData(), 'CarsModel')
 			this._bDescendingSort = false;
 			this.oProductsTable = this.oView.byId("productsTable");
 		},
@@ -19,9 +22,8 @@ sap.ui.define([
 		onSearch: function (oEvent) {
 			var oTableSearchState = [],
 				sQuery = oEvent.getParameter("query");
-
-			if (sQuery && sQuery.length > 0) {
-				oTableSearchState = [new Filter("Name", FilterOperator.Contains, sQuery)];
+		if (sQuery && sQuery.length > 0) {
+				oTableSearchState = [new Filter("model", FilterOperator.Contains, sQuery)];
 			}
 
 			this.oProductsTable.getBinding("items").filter(oTableSearchState, "Application");
@@ -34,7 +36,7 @@ sap.ui.define([
 		onSort: function () {
 			this._bDescendingSort = !this._bDescendingSort;
 			var oBinding = this.oProductsTable.getBinding("items"),
-				oSorter = new Sorter("Name", this._bDescendingSort);
+				oSorter = new Sorter("id", this._bDescendingSort);
 
 			oBinding.sort(oSorter);
 		},

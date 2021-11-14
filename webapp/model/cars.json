@@ -1,4 +1,5 @@
-{"carsCollection":[
+{   "carsCount":10,
+    "carsCollection":[
     {
         "id":1,
         "marke": "VW",
@@ -6,7 +7,7 @@
         "ps": 115,
         "farbe": "Black",
         "price": 18.000,
-        "src": "./"
+        "image": "../model/images/1_volkswagen_golf_iqdrive.png"
     },
 
     {
