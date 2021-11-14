@@ -1,4 +1,4 @@
-[
+{"carsCollection":[
     {
         "id":1,
         "marke": "VW",
@@ -90,4 +90,4 @@
         "image": "10_Toyota Rush G(cars foto)"
     }
     
-    ]
+    ]}
