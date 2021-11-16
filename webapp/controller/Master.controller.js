@@ -17,6 +17,7 @@ sap.ui.define([
 			this.oView.setModel(DataFactory.getCarsData(), 'CarsModel')
 			this._bDescendingSort = false;
 			this.oProductsTable = this.oView.byId("productsTable");
+			this.oRouter = this.getOwnerComponent().getRouter();
 		},
 
 		onSearch: function (oEvent) {
@@ -42,10 +43,11 @@ sap.ui.define([
 		},
 		
 
-		onListItemPress: function () {
-			var oFCL = this.oView.getParent().getParent();
+		onListItemPress: function (oEvent) {
+			var carPath = oEvent.getSource().getBindingContextPath(),
+				car = carPath.split("/").slice(-1).pop();
 
-			oFCL.setLayout(fioriLibrary.LayoutType.TwoColumnsMidExpanded);
+			this.oRouter.navTo("detail", {layout: fioriLibrary.LayoutType.TwoColumnsMidExpanded, car: car});
 		}
 	});
 });

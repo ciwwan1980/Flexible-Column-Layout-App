@@ -1,4 +1,5 @@
 <mvc:View
+	controllerName="sap.ui.demo.fiori2.controller.Detail"
 	xmlns="sap.uxap"
 	xmlns:m="sap.m"
 	xmlns:f="sap.f"
@@ -14,10 +15,28 @@
 		upperCaseAnchorBar="false">
 		<headerTitle>
 			<ObjectPageDynamicHeaderTitle>
+				<expandedHeading>
+					<m:Title text="{CarsModel>model}" wrapping="true" class="sapUiSmallMarginEnd"/>
+				</expandedHeading>
+
+				<snappedHeading>
+					<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
+						<m:FlexBox wrap="NoWrap" fitContainer="true" alignItems="Center" class="sapUiTinyMarginEnd">
+							<f:Avatar
+								src="https://sapui5.hana.ondemand.com/{products>ProductPicUrl}"
+								displaySize="S"
+								displayShape="Square"
+								class="sapUiTinyMarginEnd"/>
+							<m:Title text="{CarsModel>model}" wrapping="true"/>
+						</m:FlexBox>
+					</m:FlexBox>
+				</snappedHeading>
+
 				<actions>
 					<m:ToggleButton
 						text="Edit"
-						type="Emphasized"/>
+						type="Emphasized"
+						press=".onEditToggleButtonPress"/>
 					<m:Button
 						text="Delete"
 						type="Transparent"/>
@@ -34,18 +53,22 @@
 		<headerContent>
 			<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Stretch">
 				<f:Avatar
+					src="https://sapui5.hana.ondemand.com/{products>ProductPicUrl}"
 					displaySize="L"
 					displayShape="Square"
 					class="sapUiTinyMarginEnd">
 				</f:Avatar>
 				<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
-					<m:Label text="Main Category"/>
+					<m:Label text="marke"/>
+					<m:Text text="{CarsModel>marke}"/>
 				</m:VBox>
 				<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
-					<m:Label text="Subcategory"/>
+					<m:Label text="model"/>
+					<m:Text text="{CarsModel>model}"/>
 				</m:VBox>
 				<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
 					<m:Label text="Price"/>
+					<m:ObjectNumber number="{CarsModel>price}" emphasized="false"/>
 				</m:VBox>
 			</m:FlexBox>
 		</headerContent>
@@ -66,9 +89,12 @@
 								columnsL="1"
 								columnsM="1">
 								<form:content>
-									<m:Label text="Product ID"/>
-									<m:Label text="Description"/>
-									<m:Label text="Supplier"/>
+									<m:Label text="car ID"/>
+									<m:Text text="{CarsModel>id}"/>
+									<m:Label text="ps"/>
+									<m:Text text="{CarsModel>ps}"/>
+									<m:Label text="farbe"/>
+									<m:Text text="{CarsModel>farbe}"/>
 								</form:content>
 							</form:SimpleForm>
 						</blocks>
@@ -76,28 +102,23 @@
 				</subSections>
 			</ObjectPageSection>
 
-			<ObjectPageSection title="Suppliers">
+			<ObjectPageSection title="Absatz">
 				<subSections>
 					<ObjectPageSubSection>
 						<blocks>
-							<m:Table
-								id="suppliersTable"
-								items="{path : 'products>/ProductCollectionStats/Filters/1/values'}">
-								<m:columns>
-									<m:Column/>
-								</m:columns>
-								<m:items>
-									<m:ColumnListItem type="Navigation">
-										<m:cells>
-											<m:ObjectIdentifier text="{products>text}"/>
-										</m:cells>
-									</m:ColumnListItem>
-								</m:items>
-							</m:Table>
+						
 						</blocks>
 					</ObjectPageSubSection>
 				</subSections>
 			</ObjectPageSection>
 		</sections>
+
+		<footer>
+			<m:OverflowToolbar>
+				<m:ToolbarSpacer/>
+				<m:Button type="Accept" text="Save"/>
+				<m:Button type="Reject" text="Cancel"/>
+			</m:OverflowToolbar>
+		</footer>
 	</ObjectPageLayout>
 </mvc:View>
