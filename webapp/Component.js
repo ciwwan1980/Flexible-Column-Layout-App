@@ -15,6 +15,7 @@ sap.ui.define([
 		init: function () {
 	
 			var oModel = new JSONModel();
+			
 			this.setModel(oModel);
 
 			UIComponent.prototype.init.apply(this, arguments);

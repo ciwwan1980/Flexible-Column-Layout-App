@@ -12,6 +12,7 @@ sap.ui.define([
 
 	return Controller.extend("sap.ui.demo.fiori2.controller.Master", {
 		onInit: function () {
+			
 			this.oView = this.getView();
 			//this.oDataFactory = DataFactory;
 			this.oView.setModel(DataFactory.getCarsData(), 'CarsModel')
@@ -38,7 +39,6 @@ sap.ui.define([
 			this._bDescendingSort = !this._bDescendingSort;
 			var oBinding = this.oProductsTable.getBinding("items"),
 				oSorter = new Sorter("id", this._bDescendingSort);
-
 			oBinding.sort(oSorter);
 		},
 		
@@ -46,7 +46,8 @@ sap.ui.define([
 		onListItemPress: function (oEvent) {
 			var carPath = oEvent.getSource().getBindingContextPath(),
 				car = carPath.split("/").slice(-1).pop();
-
+				// jQuery.sap.log.debug(car, "car is here--------")
+	
 			this.oRouter.navTo("detail", {layout: fioriLibrary.LayoutType.TwoColumnsMidExpanded, car: car});
 		}
 	});

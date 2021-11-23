@@ -5,6 +5,7 @@ sap.ui.define([
 	"use strict";
 
 	return Controller.extend("sap.ui.demo.fiori2.controller.Detail", {
+		
 		onInit: function () {
 			var oOwnerComponent = this.getOwnerComponent();
 
@@ -18,7 +19,7 @@ sap.ui.define([
 
 		_onCarMatched: function (oEvent) {
         
-			this._car = oEvent.getParameter("arguments").car || this._car|| "0";
+			this._car = oEvent.getParameter("arguments").car || this._car|| "1";
            
 			this.getView().bindElement({
 				path: "/carsCollection/" + this._car,

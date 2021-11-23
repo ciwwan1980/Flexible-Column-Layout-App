@@ -1,13 +1,38 @@
 {   "carsCount":10,
     "carsCollection":[
     {
-        "id":1  ,
+        "id":1,
         "marke": "VW",
         "model": "Volkswagen Golf IQ.DRIVE",
         "ps": 115,
         "farbe": "Black",
-        "price": 18.000,
-        "image": "../model/images/1_volkswagen_golf_iqdrive.png"
+        "price": 18000,
+        "image": "/model/images/1_volkswagen_golf.png",
+        "dataProp":[
+            {
+            
+                "CarsSold": 30000,
+                "year":"2020"
+
+            },
+            {
+            
+                "CarsSold": 20000,
+                "year":"2021"
+
+            },
+            {
+            
+                "CarsSold": 40000,
+                "year":"2019"
+
+            }
+        ],
+        "vizproperties":{
+            "title":{
+                "text":"Volkswagen Golf IQ.DRIVE"
+            }
+        }
     },
 
     {
@@ -15,81 +40,81 @@
         "marke": "Porsche",
         "model": "911 Carrera 4S Cabriolet",
         "ps": 6500,
-        "farbe": "blue",
-        "price": 145.000,
-        "image": "2_Porsche(cars foto)"
+        "farbe": "Blue",
+        "price": 145000,
+        "image": "/model/images/2_vw.png"
     },
     {
         "id":3,
         "marke": "Nissan ",
         "model": "GT-R",
         "ps": 6500,
-        "farbe": "blue",
+        "farbe": "Blue",
         "price": 80000,
-        "image": "3_Porsche(cars foto)"
+        "image": "/model/images/3_nissan.png"
     },
     {
         "id":4,
         "marke": "BMW ",
         "model": "M3",
         "ps": 480,
-        "farbe": "blue",
+        "farbe": "Blue",
         "price": 60500,
-        "image": "4_BMW(cars foto)"
+        "image": "/model/images/4_bmw.png"
     }, 
     {
         "id":5,
         "marke": "Audi ",
         "model": "S5",
         "ps": 354,
-        "farbe": "red",
+        "farbe": "Red",
         "price": 53000,
-        "image": "4_BMW(cars foto)"
+        "image": "/model/images/5_audi.png"
     },
     {
         "id":6,
         "marke": "Audi",
         "model": "TT",
         "ps": 245,
-        "farbe": "red",
+        "farbe": "Red",
         "price": 40000,
-        "image": "4_BMW(cars foto)"
+        "image": "/model/images/6_audi2.png"
     },
     {
         "id":7,
         "marke": "VW",
         "model": "Polo",
         "ps": 80,
-        "farbe": "blue",
+        "farbe": "Blue",
         "price": 15000,
-        "image": "4_BMW(cars foto)"
+        "image": "/model/images/7_vw-polo.png"
     },
     {
         "id":8,
         "marke": "Mercedes-Benz AMG",
         "model": "GT 63 S 4MATIC",
         "ps": 639,
-        "farbe": "red",
+        "farbe": "Red",
         "price": 165000,
-        "image": "4_BMW(cars foto)"
+        "image": "/model/images/8_mercedes.png"
     },
     {
         "id":9,
         "marke": "Toyota",
         "model": "Mirai",
         "ps": 639,
-        "farbe": "red",
+        "farbe": "Red",
         "price": 64000,
-        "image": "4_BMW(cars foto)"
+        "image": "/model/images/9_toyota.png"
     },
     {
         "id":10,
         "marke": "Toyota",
         "model": "Toyota Rush G",
         "ps": 109,
-        "farbe": "gray",
+        "farbe": "Gray",
         "price": 30000,
-        "image": "10_Toyota Rush G(cars foto)"
+        "image": "/model/images/10_toyota_rush.png"
     }
     
     ]}
