@@ -12,7 +12,6 @@ sap.ui.define([
 
 	return Controller.extend("sap.ui.demo.fiori2.controller.Master", {
 		onInit: function () {
-			
 			this.oView = this.getView();
 			//this.oDataFactory = DataFactory;
 			this.oView.setModel(DataFactory.getCarsData(), 'CarsModel')

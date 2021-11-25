@@ -45,10 +45,10 @@
 							<Text text="Farbe"/>
 						</Column>
 						<Column width="12em">
-							<Text text="Ps"/>
+							<Text text="PS"/>
 						</Column>
 						<Column width="12em">
-							<Text text="Price"/>
+							<Text text="Price/Euro"/>
 						</Column>
 					</columns>
 					<items>

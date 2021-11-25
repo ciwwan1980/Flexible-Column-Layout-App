@@ -6,9 +6,9 @@
 	xmlns:form="sap.ui.layout.form"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:viz="sap.viz.ui5.controls"
-xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
-xmlns:viz.data="sap.viz.ui5.data"
-xmlns:layout="sap.ui.layout">
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns:layout="sap.ui.layout">
     <ObjectPageLayout
 		id="ObjectPageLayout"
 		showTitleInHeaderContent="true"
@@ -75,12 +75,12 @@ xmlns:layout="sap.ui.layout">
             </m:FlexBox>
         </headerContent>
         <sections>
-            <ObjectPageSection title="Productsinfo">
+            <ObjectPageSection title="Productinfo">
                 <subSections>
                     <ObjectPageSubSection>
                         <blocks>
                             <form:SimpleForm
-								maxContainerCols="2"
+								maxContainerCols="2 "
 								editable="false"
 								layout="ResponsiveGridLayout"
 								labelSpanL="12"
@@ -102,49 +102,53 @@ xmlns:layout="sap.ui.layout">
                     </ObjectPageSubSection>
                 </subSections>
             </ObjectPageSection>
-            <ObjectPageSection title="Absatzahlen">
+            
+            <ObjectPageSection title="Absatzahlen/Deutschland">
                 <subSections>
                     <ObjectPageSubSection>
                         <blocks>
                           
-                            <layout:FixFlex id="idChart" minFlexSize="400">
+                            <layout:FixFlex 
+                                id="idChart" 
+                                minFlexSize="250">
                                 <layout:flexContent>
-                                    <viz:VizFrame id="idVizFrame" 
-			height="100%"
-			width="100%"
-			vizType="column"
-			vizProperties="{CarsModel>vizproperties}">
+                                        <viz:VizFrame   
+                                                        id="idVizFrame" 
+                                                        height="100%"
+                                                        width="100%"
+                                                        vizType="column"
+                                                        vizProperties="{CarsModel>vizproperties}">
+                                                        
                                         <viz:dataset>
-                                            <viz.data:FlattenedDataset data="{CarsModel>dataProp}">
+                                            <viz.data:FlattenedDataset 
+                                                        data="{CarsModel>dataProp}">
                                                 <viz.data:dimensions>
                                                     <viz.data:DimensionDefinition 
-							name="year"
-                            value="{CarsModel>year}" dataType="date"/>
+                                                        name="year"
+                                                        value="{CarsModel>year}" 
+                                                        />
                                                 </viz.data:dimensions>
+                                                
                                                 <viz.data:measures>
                                                     <viz.data:MeasureDefinition	
-						name="CarsSold"
-						value="{CarsModel>CarsSold}"
-						/>
-                                                    <!--	<viz.data:MeasureDefinition	
-						name="TeamSize"
-						value="{TeamSize}"
-						/>
-						<viz.data:MeasureDefinition	
-						name="Rating"
-						value="{Rating}"
-						/>-->
+                                                        name="sale"
+                                                        value="{CarsModel>sale}"/>
+						                                   
                                                 </viz.data:measures>
                                             </viz.data:FlattenedDataset>
                                         </viz:dataset>
+                                        
                                         <viz:feeds>
-                                            <!-- <viz.feeds:FeedItem	uid="valueAxis" type="Measure"
-				values="Cost"/> -->
-                                            <viz.feeds:FeedItem	uid="categoryAxis" type="Dimension"
-				values="year"/>
-                                            <viz.feeds:FeedItem	uid="valueAxis" type="Measure"
-				values="CarsSold"/>
+                                            <viz.feeds:FeedItem	
+                                                        uid="categoryAxis" 
+                                                        type="Dimension"
+                                                        values="year"/>
+                                            <viz.feeds:FeedItem	
+                                                        uid="valueAxis" 
+                                                        type="Measure"
+                                                        values="sale"/>
                                         </viz:feeds>
+
                                     </viz:VizFrame>
                                 </layout:flexContent>
                             </layout:FixFlex>
